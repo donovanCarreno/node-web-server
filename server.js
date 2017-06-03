@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const app = express()
 
-const { PORT } = process.env || 3000
+const PORT = process.env.PORT || 3000
 
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs')
@@ -40,6 +40,12 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
+  })
+})
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
   })
 })
 
